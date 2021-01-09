@@ -1,0 +1,21 @@
+{
+  "name": "stock-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.20",
+    "qs": "^6.9.4",
+    "request-x-ray": "^0.1.4",
+    "winston": "^3.3.3",
+    "x-ray": "^2.3.4"
+  }
+}

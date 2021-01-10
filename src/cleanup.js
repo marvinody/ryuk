@@ -28,7 +28,8 @@ module.exports = function Cleanup(callback) {
 
   //catch uncaught exceptions, trace, then exit normally
   process.on('unhandledRejection', function (e) {
-    logger.error("UNCAUGHT REJECT", e)
+    logger.error(`UNCAUGHT REJECT: ${e.message}`,)
+    logger.error(e)
     process.exit(99);
   });
 };

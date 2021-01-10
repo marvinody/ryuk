@@ -6,7 +6,7 @@ const cleanup = require('../cleanup')
 
 const DB_FILENAME = "shitty_db.json"
 
-const DB_FILEPATH = path.join(__dirname, '..', DB_FILENAME)
+const DB_FILEPATH = path.join(__dirname, '..', '..', DB_FILENAME)
 
 const emptyData = {};
 

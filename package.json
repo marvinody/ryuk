@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
+    "debug": "LOG_LEVEL=debug npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

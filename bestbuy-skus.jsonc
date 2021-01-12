@@ -2,18 +2,19 @@
   // https://www.bestbuy.com/site/sony-playstation-5-digital-edition-console/6430161.p?skuId=6430161
   "6430161",
 
+  // https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149
+  "6426149",
+
   //https://www.bestbuy.com/site/evga-geforce-rtx-3080-xc3-ultra-gaming-10gb-gddr6-pci-express-4-0-graphics-card/6432400.p?skuId=6432400
   "6432400",
 
   // https://www.bestbuy.com/site/evga-geforce-rtx-3080-ftw3-ultra-gaming-10gb-gddr6-pci-express-4-0-graphics-card/6436196.p?skuId=6436196
   "6436196",
 
+  //https://www.bestbuy.com/site/asus-geforce-rtx-3080-10gb-gddr6x-pci-express-4-0-strix-graphics-card-black/6432445.p?skuId=6432445
+  "6432445",
+
+
   //https://www.bestbuy.com/site/evga-geforce-rtx-3080-xc3-gaming-10gb-gddr6-pci-express-4-0-graphics-card/6436194.p?skuId=6436194
-  "6436194",
-
-  // https://www.bestbuy.com/site/gigabyte-geforce-rtx-3080-aorus-master-10g-gddr6x-pci-express-4-0-graphics-card-black/6436223.p?skuId=6436223
-  "6436223",
-
-  // https://www.bestbuy.com/site/evga-geforce-rtx-3080-xc3-black-gaming-10gb-gddr6-pci-express-4-0-graphics-card/6432399.p?skuId=6432399
-  "6432399"
+  "6436194"
 ]

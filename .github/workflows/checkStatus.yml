@@ -10,10 +10,9 @@ on:
     branches: [ master ]
   schedule:
     - cron: '36 07 * * *'  # every day at like 730
-
 jobs:
   build:
-
+    environment: sitrep-env
     runs-on: ubuntu-latest
     
     steps:
@@ -25,3 +24,4 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm run sitrep
+

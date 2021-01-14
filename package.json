@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "debug": "LOG_LEVEL=debug npm run start",
+    "sitrep": "node src/sitrep",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

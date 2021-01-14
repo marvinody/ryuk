@@ -4,22 +4,22 @@ const bestbuy = require('../bestbuy')
 const discord = require('../discord')
 
 const sku = "6430161";
-console.log(JSON.stringify(process.env, null, 2))
-// (async () => {
-//   try {
 
-//     const result = await bestbuy({ sku });
+(async () => {
+  try {
 
-//     if (result.sku !== sku) {
-//       throw new Error(`SKU mismatch: Expected "${result.sku}" to equal "${sku}"`);
-//     }
+    const result = await bestbuy({ sku });
 
-//     if (result.status !== "Sold Out") {
-//       throw new Error(`Status mismatch: Expected "${result.status}" to be "Sold Out"`)
-//     }
-//     await discord.webhook("SNAFU")
-//   } catch (err) {
-//     console.error(err)
-//     await discord.webhook(err.message)
-//   }
-// })()
+    if (result.sku !== sku) {
+      throw new Error(`SKU mismatch: Expected "${result.sku}" to equal "${sku}"`);
+    }
+
+    if (result.status !== "Sold Out") {
+      throw new Error(`Status mismatch: Expected "${result.status}" to be "Sold Out"`)
+    }
+    await discord.webhook("SNAFU")
+  } catch (err) {
+    console.error(err)
+    await discord.webhook(err.message)
+  }
+})()

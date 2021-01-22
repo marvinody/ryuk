@@ -1,13 +1,13 @@
-const fs = require('fs')
+const fs = require('fs');
 
-const stripJSONComments = (data) => {
-  var re = new RegExp("\/\/(.*)", "g");
+const stripJSONComments = data => {
+  const re = new RegExp('//(.*)', 'g');
   return data.replace(re, '');
-}
+};
 
-module.exports = (filePath) => {
+module.exports = filePath => {
   const jsonData = fs.readFileSync(filePath, 'utf8');
   const stripped = stripJSONComments(jsonData);
   const jsonObject = JSON.parse(stripped);
-  return jsonObject
-}
+  return jsonObject;
+};

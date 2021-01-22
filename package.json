@@ -9,13 +9,16 @@
     "sitrep": "node src/sitrep",
     "search": "npm run compile && node build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "gts lint",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "clean": "gts clean",
     "compile": "tsc",
-    "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   },
   "keywords": [],
   "author": "",

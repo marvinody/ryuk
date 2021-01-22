@@ -2,3 +2,4 @@ shitty_db.json
 node_modules/*
 .env
 index.html
+build/*

@@ -1,13 +1,13 @@
 // Check out the readme if need explanation on this folder/file...
-require("dotenv").config();
-const bestbuy = require("../bestbuy");
-const discord = require("../discord");
+require('dotenv').config();
+const bestbuy = require('../extractors/bestbuy');
+const discord = require('../discord');
 
-const sku = "6430161";
+const sku = '6430161';
 
 (async () => {
   try {
-    const result = await bestbuy({ sku });
+    const result = await bestbuy({sku});
 
     if (result.sku !== sku) {
       throw new Error(
@@ -15,12 +15,12 @@ const sku = "6430161";
       );
     }
 
-    if (result.status !== "Sold Out") {
+    if (result.status !== 'Sold Out') {
       throw new Error(
         `Status mismatch: Expected "${result.status}" to be "Sold Out"`
       );
     }
-    await discord.webhook("SNAFU");
+    await discord.webhook('SNAFU');
   } catch (err) {
     console.error(err);
     await discord.webhook(err.message);

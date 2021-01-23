@@ -15,7 +15,7 @@ const bestbuySkus = jsonc(BESTBUY_SKU_FILE);
 (async () => {
   for (const sku of bestbuySkus) {
     // hit bestbuy website to check status
-    const liveItem = await bestbuy({ sku });
+    const liveItem = await bestbuy({sku});
 
     // hit local DB to see if need to create or seen it
     const dbKey = `bestbuy-${sku}`;

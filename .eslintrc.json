@@ -1,8 +1,6 @@
 {
   "extends": "./node_modules/gts/",
   "rules": {
-    "object-curly-spacing": ["error", "always"],
-    "no-process-exit":"off",
-    "quotes": ["error", "double"]
+
   }
 }

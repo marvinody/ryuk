@@ -1,3 +1,4 @@
+/* eslint-disable no-process-exit */
 const logger = require('./logger');
 
 const noOp = () => {};

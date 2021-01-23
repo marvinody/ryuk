@@ -1,7 +1,7 @@
 const Xray = require('x-ray');
-const http = require('../http');
-const logger = require('../logger');
-const minWait = require('../minWait');
+const http = require('../util/http');
+const logger = require('../util/logger');
+const minWait = require('../util/minWait');
 
 const DELAY_BETWEEN_LOOKUPS_IN_MS = 5000;
 

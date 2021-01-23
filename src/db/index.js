@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
-const logger = require('../logger');
-const cleanup = require('../cleanup');
+const logger = require('../util/logger');
+const cleanup = require('../util/cleanup');
 
 const DB_FILENAME = 'shitty_db.json';
 

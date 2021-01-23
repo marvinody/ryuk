@@ -1,7 +1,7 @@
 // Check out the readme if need explanation on this folder/file...
 require('dotenv').config();
 const bestbuy = require('../extractors/bestbuy');
-const discord = require('../discord');
+const discord = require('../util/discord');
 
 const sku = '6430161';
 

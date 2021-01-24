@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "debug": "LOG_LEVEL=debug npm run start",
-    "sitrep": "node src/sitrep",
+    "sitrep": "npm run compile && node build/sitrep",
     "search": "npm run compile && node build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gts lint",

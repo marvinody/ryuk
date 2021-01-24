@@ -1,0 +1,1 @@
+export {BestBuyExtractor} from './Bestbuy';

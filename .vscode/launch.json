@@ -5,13 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}/src/index.js"
+      "name": "SitRep",
+      "program": "${workspaceFolder}/src/sitrep/index.ts",
+      "sourceMaps": true,
+      "preLaunchTask": "npm: compile",
+      "outFiles": ["${workspaceFolder}/build/**/*.js"]
     }
   ]
 }

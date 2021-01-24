@@ -1,5 +1,5 @@
-const {createLogger, format, transports} = require('winston');
-const path = require('path');
+import {createLogger, format, transports} from 'winston';
+import path from 'path';
 
 const logger = createLogger({
   level: process.env.LOG_LEVEL || 'info',
@@ -18,9 +18,7 @@ const logger = createLogger({
     // format.json()
   ),
   transports: [
-    new transports.Console({
-      timestamp: true,
-    }),
+    new transports.Console(),
     new transports.File({
       filename: path.join(__dirname, '..', 'logs', 'combined.log'),
       maxFiles: 10,
@@ -31,4 +29,4 @@ const logger = createLogger({
   ],
 });
 
-module.exports = logger;
+export default logger;

@@ -1,9 +1,9 @@
 /* eslint-disable no-process-exit */
-const logger = require('./logger');
+import logger from './logger';
 
 const noOp = () => {};
 
-module.exports = function Cleanup(callback) {
+export default function Cleanup(callback: () => void) {
   // attach user callback to the process event emitter
   // if no callback, it will still exit gracefully on Ctrl-C
   callback = callback || noOp;
@@ -11,7 +11,8 @@ module.exports = function Cleanup(callback) {
 
   // do app specific cleaning before exiting
   process.on('exit', () => {
-    process.emit('cleanup');
+    // https://stackoverflow.com/questions/49459191/adding-custom-event-to-the-process-emitter
+    (process.emit as Function)('cleanup');
   });
 
   // catch ctrl+c event and exit normally
@@ -27,9 +28,9 @@ module.exports = function Cleanup(callback) {
   });
 
   //catch uncaught exceptions, trace, then exit normally
-  process.on('unhandledRejection', e => {
+  process.on('unhandledRejection', (e: Error) => {
     logger.error(`UNCAUGHT REJECT: ${e.message}`);
     logger.error(e);
     process.exit(99);
   });
-};
+}

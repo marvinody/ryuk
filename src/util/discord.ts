@@ -1,17 +1,16 @@
 import axios from 'axios';
 import logger from './logger';
 
-const {USERNAME, WEBHOOK_URL} = process.env;
-
-export const webhook = async (message: string) => {
-  if (!WEBHOOK_URL) {
-    logger.error('WEBHOOK_URL is not defined, not sending update');
-    return;
+export const makeWebhook = (url: string | undefined, username?: string) => {
+  if (url === undefined) {
+    throw new Error('UNDEFINED DISCORD WEBHOOK URL');
   }
 
-  await axios.post(WEBHOOK_URL, {
-    username: USERNAME,
-    content: message,
-  });
-  logger.debug('Update sent to discord');
+  return async (message: string) => {
+    await axios.post(url, {
+      username,
+      content: message,
+    });
+    logger.debug('Update sent to discord');
+  };
 };

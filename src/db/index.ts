@@ -29,7 +29,7 @@ const data = (() => {
 })();
 
 // returns array of [created, rowAsObject]
-export const findOrCreate = (id: string, defaults: Object) => {
+export const findOrCreate = <T>(id: string, defaults: T): [boolean, T] => {
   if (data[id]) {
     return [false, data[id]];
   }

@@ -7,7 +7,7 @@ const stripJSONComments = (data: string) => {
 
 export default (filePath: string) => {
   const jsonData = fs.readFileSync(filePath, 'utf8');
-  const stripped = stripJSONComments(jsonData);
-  const jsonObject = JSON.parse(stripped);
+  // const stripped = stripJSONComments(jsonData);
+  const jsonObject = JSON.parse(jsonData);
   return jsonObject;
 };

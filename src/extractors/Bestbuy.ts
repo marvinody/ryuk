@@ -1,7 +1,7 @@
 import XRay from 'x-ray';
 import {get} from '../util/http';
 import logger from '../util/logger';
-import minWait from '../util/minWait';
+import {waitBetweenCalls} from '../util/minWait';
 import {Extractor, Item} from './IExtractor';
 
 const DELAY_BETWEEN_LOOKUPS_IN_MS = 5000;
@@ -60,39 +60,38 @@ const ADD_TO_CART_SELECTOR = '.fulfillment-add-to-cart-button button';
 
 type BestBuyItem = Item & {};
 
-export class BestBuyExtractor implements Extractor {
-  readonly _TestUrls = [];
-  readonly urlRegexp = /https?:\/\/www.bestbuy.com\/site\/(?<title>.*)\/(?<sku>.*)\.p/;
-  readonly store = 'Bestbuy';
+const _TestUrls: string[] = [];
+const store = 'Bestbuy';
+const urlRegexp = /https?:\/\/www.bestbuy.com\/site\/(?<title>.*)\/(?<sku>.*)\.p/;
 
-  isValidUrl(url: string): boolean {
-    return this.urlRegexp.test(url);
-  }
+export const BestBuyExtractor: Extractor = {
+  _TestUrls,
+  isValidUrl: (url: string) => urlRegexp.test(url),
+  extract: waitBetweenCalls(DELAY_BETWEEN_LOOKUPS_IN_MS)(
+    (url: string): Promise<BestBuyItem> => {
+      logger.info(`${url}: Searching`);
+      const regexpResult = url.match(urlRegexp);
+      if (!regexpResult?.groups) {
+        const err = new Error(`Could not detect any regexp groups from ${url}`);
+        logger.error(err);
+        throw err;
+      }
 
-  extract(url: string): Promise<BestBuyItem> {
-    console.log(this);
-    logger.info(`${url}: Searching`);
-    const regexpResult = url.match(this.urlRegexp);
-    if (!regexpResult?.groups) {
-      const err = new Error(`Could not detect any regexp groups from ${url}`);
-      logger.error(err);
-      throw err;
-    }
+      const {sku, title} = regexpResult.groups;
 
-    const {sku, title} = regexpResult.groups;
-
-    // have to wrap in promise because xray isn't a promise...it's promise-like... with just a .then
-    return new Promise(res => {
-      x(url, 'body', ADD_TO_CART_SELECTOR).then((value: string) => {
-        logger.info(`${sku}: status=${value}`);
-        res({
-          id: sku,
-          title,
-          status: value,
-          url,
-          store: this.store,
+      // have to wrap in promise because xray isn't a promise...it's promise-like... with just a .then
+      return new Promise(res => {
+        x(url, 'body', ADD_TO_CART_SELECTOR).then((value: string) => {
+          logger.info(`${sku}: status=${value}`);
+          res({
+            id: sku,
+            title,
+            status: value,
+            url,
+            store,
+          });
         });
       });
-    });
-  }
-}
+    }
+  ),
+};

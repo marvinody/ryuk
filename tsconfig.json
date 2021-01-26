@@ -4,7 +4,6 @@
     "rootDir": "src",
     "esModuleInterop": true,
     "outDir": "build",
-    "allowJs": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "typeRoots": [

@@ -6,8 +6,8 @@ export type Item = {
   status: string;
 };
 
-export interface Extractor {
+export type Extractor = {
   isValidUrl(url: string): boolean;
   _TestUrls: string[];
   extract(url: string): Promise<Item>;
-}
+};

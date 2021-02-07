@@ -1,11 +1,13 @@
 import {BestBuyExtractor} from './Bestbuy';
 export {BestBuyExtractor} from './Bestbuy';
+import {PokemonCenterExtractor} from './PokemonCenter';
+export {PokemonCenterExtractor} from './PokemonCenter';
 
 import {Extractor, Item} from './IExtractor';
 export {Extractor, Item} from './IExtractor';
 
 // add any new extractors here and everything should work as normal
-const extractors = [BestBuyExtractor];
+const extractors = [BestBuyExtractor, PokemonCenterExtractor];
 
 class NoMatchingExtractor extends Error {
   constructor(message: string) {

@@ -4,8 +4,8 @@ config();
 import jsonc from './util/jsonc';
 
 const path = require('path');
-const BESTBUY_SKU_FILE = path.join(__dirname, '..', 'bestbuy-skus.jsonc');
-const bestbuySkus = jsonc(BESTBUY_SKU_FILE);
+const SKU_FILE = path.join(__dirname, '..', 'skus.jsonc');
+const bestbuySkus = jsonc(SKU_FILE);
 
 import {findOrCreate, updateById} from './db';
 import logger from './util/logger';

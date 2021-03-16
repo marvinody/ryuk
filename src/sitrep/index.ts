@@ -15,9 +15,9 @@ const cases = [
   },
   {
     url:
-      'https://www.pokemoncenter.com/product/173-80700/pokemon-tcg-charizard-ex-box',
-    sku: '173-80700',
-    status: 'OUT_OF_STOCK',
+      'https://www.pokemoncenter.com/product/290-80545/pokemon-tcg-champion-s-path-elite-trainer-box',
+    sku: '290-80545',
+    status: 'NOT_AVAILABLE',
   },
 ];
 (async () => {
@@ -34,12 +34,12 @@ const cases = [
 
       if (result.id !== sku) {
         throw new Error(
-          `SKU mismatch: Expected "${result.id}" to equal "${sku}"`
+          `SKU mismatch: Expected "${result.id}" to equal "${sku}" for ${url}`
         );
       }
       if (result.status !== status) {
         throw new Error(
-          `Status mismatch: Expected "${result.status}" to be "${status}"`
+          `Status mismatch: Expected "${result.status}" to be "${status}" for ${url}`
         );
       }
     } catch (err) {

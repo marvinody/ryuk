@@ -28,6 +28,7 @@
     "dotenv": "^8.2.0",
     "lodash": "^4.17.20",
     "node-fetch": "^2.6.1",
+    "node-html-parser": "^3.3.4",
     "node-libcurl": "^2.3.0",
     "qs": "^6.9.4",
     "request-x-ray": "^0.1.4",

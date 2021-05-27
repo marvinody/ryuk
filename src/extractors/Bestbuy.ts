@@ -2,7 +2,7 @@ import XRay from 'x-ray';
 import {get} from '../util/http';
 import logger from '../util/logger';
 import {waitBetweenCalls} from '../util/minWait';
-import {Extractor, Item} from './IExtractor';
+import {Extractor, Item, genericDiscordMessage} from './IExtractor';
 
 const DELAY_BETWEEN_LOOKUPS_IN_MS = 5000;
 
@@ -67,6 +67,7 @@ const urlRegexp = /https?:\/\/www.bestbuy.com\/site\/(?<title>.*)\/(?<sku>.*)\.p
 export const BestBuyExtractor: Extractor = {
   _TestUrls,
   isValidUrl: (url: string) => urlRegexp.test(url),
+  makeEmbed: genericDiscordMessage,
   extract: waitBetweenCalls(DELAY_BETWEEN_LOOKUPS_IN_MS)(
     (url: string): Promise<BestBuyItem> => {
       logger.info(`${url}: Searching`);

@@ -1,4 +1,4 @@
-import {Extractor, Item} from './IExtractor';
+import {Extractor, Item, genericDiscordMessage} from './IExtractor';
 import {waitBetweenCalls} from '../util/minWait';
 import logger from '../util/logger';
 import {get as getValue} from 'lodash';
@@ -15,6 +15,7 @@ type PokemonCenterItem = Item & {};
 export const PokemonCenterExtractor: Extractor = {
   _TestUrls,
   isValidUrl: (url: string) => urlRegexp.test(url),
+  makeEmbed: genericDiscordMessage,
   extract: waitBetweenCalls(DELAY_BETWEEN_LOOKUPS_IN_MS)(
     (url: string): Promise<PokemonCenterItem> => {
       logger.info(`${url}: Searching`);

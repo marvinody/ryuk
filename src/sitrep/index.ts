@@ -1,7 +1,7 @@
 // Check out the readme if need explanation on this folder/file...
 require('dotenv').config();
 
-import {constructExtractorMappings} from '../extractors';
+import {getExtractor} from '../extractors';
 import {makeWebhook} from '../util/discord';
 
 const webhook = makeWebhook(process.env.WEBHOOK_URL, process.env.USERNAME);
@@ -21,15 +21,12 @@ const cases = [
   },
 ];
 (async () => {
-  const urls = cases.map(c => c.url);
-
-  const lookups = constructExtractorMappings(urls);
-
   let hasErrored = false;
 
   for (const {url, sku, status} of cases) {
     try {
-      const result = await lookups(url);
+      const extractor = getExtractor(url);
+      const result = await extractor.extract(url);
       console.log(result);
 
       if (result.id !== sku) {

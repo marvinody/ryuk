@@ -41,7 +41,7 @@ const searchAndUpdate = async (url: string, db: DB) => {
     }
 
     if (message !== null) {
-      await webhook(message);
+      await webhook(message, liveItem.store);
     }
   } catch (err) {
     logger.error(err);

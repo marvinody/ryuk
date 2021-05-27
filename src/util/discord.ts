@@ -6,7 +6,7 @@ export const makeWebhook = (url: string | undefined, username?: string) => {
     throw new Error('UNDEFINED DISCORD WEBHOOK URL');
   }
 
-  return async (message: string | DiscordEmbed) => {
+  return async (message: string | DiscordEmbed, username?: string) => {
     if (typeof message === 'string') {
       await axios.post(url, {
         username,
